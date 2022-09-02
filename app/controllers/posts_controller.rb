@@ -6,11 +6,9 @@ class PostsController < ApplicationController
     render json: post
   end
 
-  def update
-    post = Post.find(params[:id])
-
-    post.update(post_params)
-
+   def update
+    post = Post.find_by!(id: params[:id])
+    post.update!(post_params)
     render json: post
   end
 
